@@ -1,0 +1,64 @@
+<!-- rich editor -->
+<script type="text/javascript" src="{{ url_for('static' , filename='js/ckeditor_4.5.7_full/ckeditor.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static' , filename='js/ckeditor_4.5.7_full/plugins/image/dialogs/image.js') }}"></script>
+    
+    <!-- title -->
+    <div id="add_money_form my-3">
+        <div class="card">
+            <div class="card-header">
+                <h4><i class="bi bi-pencil-square"></i> 記帳本</h4>
+            </div>
+            <div class="card-body">
+                
+                <!-- 日期時間 -->
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">日期</span>
+                    <!-- date  param : data-enable-time="true" data-enable-seconds="true" -->
+                    <input type="text" class="form-control" id="date" value="{{ r_time }}" placeholder="" required readonly>
+                </div>
+
+                <!-- 種類 -->
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">種類</span>
+                    <input type="text" class="form-control" id="kind" placeholder="" required>
+                    <select class="form-control" id="add_money_record_kind" onchange="select_money_record_kind(this.value)">
+                        <option></option>
+                        {% for val in kind %}
+                            <option value="{{ val[0] }}">{{ val[0] }} ({{ val[1] }})</option>
+                        {% endfor %}
+                    </select>
+                    
+                </div>
+
+                <!-- 花費 -->
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">花費</span>
+                    <input type="text" class="form-control" id="money" placeholder="" required>
+                    <span class="input-group-text" id="basic-addon1">元</span>
+                </div>
+
+                <!-- 內容 -->
+                <div class="input-group mb-3 d-flex justify-content-center align-items-center">
+                    <textarea class="form-control" id="content" rows="6" required></textarea>
+                </div>
+                
+                <!-- user -->
+                <input type="hidden" id="user" value="{{ user }}" />
+            </div>
+            <div class="card-footer text-center">
+                <div class="btn-group">
+                    <button type="submit" class="btn btn-primary" onclick="submit_add_money_record_form()"><i class="bi bi-pencil-square"></i> 新增</button>
+                </div>
+            </div>
+            
+            <!-- error msg -->
+            <div id="error_msg" class="text-center"></div>
+        </div>
+    </div>
+    
+    <!-- date picker & rich editor-->
+    <script>
+        $("#date").flatpickr();  
+        //CKEDITOR.replace('content');
+    </script>
+        

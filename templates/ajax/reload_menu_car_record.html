@@ -1,0 +1,17 @@
+<ul style="display: flex; flex-wrap: wrap; justify-content: center; padding: 0; list-style-type: none;">
+        {% for val in msg %}
+        <li style="list-style-type: none; display: inline-block; width: 25%;" class="list-inline-item mouse_hover rounded border border-1 m-2 p-2 text-center align-middle">
+        <p><button class="btn btn-danger"  id="{{ val[6] }}" onclick="del_menu_car_record(id)"><i class="bi bi-x-square"></i> 刪</button></p>
+                <span class="mouse_hover">
+                        <p class="bottom_border">{{ val[0] }}</p>  
+                        <p>出車 {{ val[1] }} KM , 入庫 {{ val[2] }} KM , 共 {{ val[3] }} KM , 車子 {{ val[4] }}</p>
+                        <p>{{ val[5] }}</p> 
+                </span>
+        </li>
+        {% endfor %}
+</ul>
+
+
+
+
+   

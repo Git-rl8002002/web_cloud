@@ -1,0 +1,13 @@
+<ul style="display: flex; flex-wrap: wrap; justify-content: center; padding: 0; list-style-type: none;">
+    {% for val in msg %}
+    <li style="list-style-type: none; display: inline-block; width: 25%;" class="list-inline-item mouse_hover rounded border border-1 m-2 p-2 text-center align-middle">
+        <span id="{{ val[5] }}" onclick="detail_work_record(id)" class="mouse_hover">
+            <p class="bottom_border">{{ val[0] }}</p>
+            <p>{{ val[1] }}</p> 
+        </span>
+    </li>
+    {% endfor %}
+</ul>
+
+
+   

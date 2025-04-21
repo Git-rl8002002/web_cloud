@@ -1,0 +1,14 @@
+<ul style="display: flex; flex-wrap: wrap; justify-content: center; padding: 0; list-style-type: none;">
+    {% for val in msg %}
+        <li style="list-style-type: none; display: inline-block; width: 25%; border:1px solid #adb5bd;" class="list-inline-item mouse_hover rounded m-2 p-2 text-center align-middle">
+            <span>
+                <p><button type="button" class="btn btn-danger" id="{{ val[3] }}/{{ val[0] }}" onclick="del_website_record(id)"><i class="bi bi-x-square"></i> 刪</button></p>
+                <p class="text-primary bottom_border">{{ val[3] }}</p>  
+                <p><a href="{{ val[1] }}" class="text-black" target="_blank">{{ val[0] }}</a></p>
+            </span>
+        </li>
+    {% endfor %}
+</ul>
+
+
+  

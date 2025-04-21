@@ -1,0 +1,35 @@
+    <div class="card" id="add_account_form">
+        <div class="card-header"><h4><i class="bi bi-pencil-square"></i> 新增帳號</h4></div>
+        <div class="card-body">
+            
+            <!-- 帳號 -->
+            <div class="input-group mb-3">
+                <span class="input-group-text">帳號</span>
+                <input type="text" id="a_user" class="form-control" onkeyup="check_account_user()">
+                <span id="check_account_user"></span>
+            </div>       
+
+            <!-- 密碼 -->
+            <div class="input-group mb-3">
+                <span class="input-group-text">密碼</span>
+                <input type="password" id="a_pwd" class="form-control">
+            </div>
+
+            <!-- 等級 -->
+            <div class="input-group mb-3">
+                <span class="input-group-text">等級</span>
+                <input type="text" id="a_lv" class="form-control" value="3" placeholder="等級" readonly/>
+            </div>
+        </div>
+
+        <div class="card-footer text-center">
+            <div class="btn-group">
+                <button class="btn btn-primary" onclick="submit_account_form()"><i class="bi bi-pencil-square"></i> 新增</button>
+            </div>
+        </div>
+
+        <!-- error msg -->
+        <div id="error_msg" class="text-center"></div>
+    </div>
+
+  

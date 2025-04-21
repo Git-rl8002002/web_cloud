@@ -1,0 +1,56 @@
+<!-- rich editor -->
+<script type="text/javascript" src="{{ url_for('static' , filename='js/ckeditor_4.5.7_full/ckeditor.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static' , filename='js/ckeditor_4.5.7_full/plugins/image/dialogs/image.js') }}"></script>
+    
+    <!-- title -->
+    <div id="add_work_form" class="card">
+        <div class="card-header">
+        {% for val in msg %}
+            <div><h3><i class="bi bi-pencil-square"></i> <span class="text-danger">修改</span> {{ val[2] }}</h3></div>
+        </div>
+        <div class="card-body">
+            
+            <!-- 日期時間 -->
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">日期</span>
+                <!-- date -->
+                <input type="text" class="form-control" id="record_time" value="{{ val[0] }}" placeholder="" readonly/>
+            </div>
+
+            <!-- 種類 -->
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">種類</span>
+                <!-- kind -->
+                <input type="text" class="form-control" id="kind"  value="{{ val[1] }}" placeholder="">
+            </div>
+
+            <!-- 標體 -->
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">標體</span>
+                <!-- title -->
+                <input type="text" class="form-control" id="title" value="{{ val[2] }}" placeholder="">
+            </div>
+
+            <!-- 內容 -->
+            <div class="input-group mb-3 d-flex justify-content-center align-items-center">
+                <!-- content -->
+                <textarea class="form-control" id="content" rows="30" >{{ val[3] }}</textarea>
+            </div>
+            
+            <!-- no -->
+            <input type="hidden" id="no" value="{{ val[5] }}"/>
+            
+            {% endfor %}
+        </div>
+        <div class="card-footer text-center">
+            <div class="btn-group">
+                <button  class="btn btn-primary" onclick="submit_alter_work_record_form()"><i class="bi bi-pencil-square"></i> 修改</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- date picker & rich editor-->
+    <script>
+        $("#record_time").flatpickr();  
+        CKEDITOR.replace('content');
+    </script>

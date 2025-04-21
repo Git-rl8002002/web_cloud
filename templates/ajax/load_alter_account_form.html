@@ -1,0 +1,59 @@
+    <div class="card" id="add_account_form">
+        <div class="card-header"><h4><i class="bi bi-pencil-square"></i> 修改帳號</h4></div>
+        <div class="card-body">
+            {% for val in res %}
+            
+            <!-- 帳號 -->
+            <div class="input-group mb-3">
+                <span class="input-group-text">帳號</span>
+                <input type="text" id="a_user" class="form-control" value="{{ val[0] }}" readonly/>
+            </div>
+
+            <!-- 密碼 -->
+            <div class="input-group mb-3">
+                <span class="input-group-text">密碼</span>
+                <input type="text" id="a_pwd" class="form-control" value="{{ val[1] }}">
+            </div>
+
+            <!--  狀態 -->
+            <div class="input-group mb-3">
+                <span class="input-group-text">狀態</span>
+                <input type="text" id="a_status" class="form-control"  value="{{ val[2] }}" placeholder="狀態">
+                <select id="change_account_status" class="form-control" onchange="change_account_status()">
+                    <option></option>
+                    <option value="run" class="text-success"><i class="bi bi-check-circle"></i>run</option>
+                    <option value="stop" class="text-danger"><i class="bi bi-x-circle"></i>stop</option>
+                </select>
+            </div>
+
+            <!-- 等級 -->
+            <div class="input-group mb-3">
+                <span class="input-group-text">等級</span>
+                <input type="text" id="a_lv" class="form-control"  value="{{ val[3] }}" placeholder="等級" readonly/>
+            </div>
+
+            {% for val2 in a_record %}
+            <!-- 最後 -->
+            <div class="input-group mb-3">
+                <span class="input-group-text">最後</span>
+                <input type="text" id="a_lv" class="form-control"  value="{{ val2[0] }}" placeholder="等級" readonly/>
+            </div>
+
+            <!-- IP位置 -->
+            <div class="input-group mb-3">
+                <span class="input-group-text">位置</span>
+                <input type="text" id="a_lv" class="form-control"  value="{{ val2[1] }}" placeholder="等級" readonly/>
+            </div>
+            {% endfor %}
+            {% endfor %}
+        </div>
+
+        <div class="card-footer text-center">
+            <div class="btn-group">
+                <button class="btn btn-primary" onclick="submit_alter_account_form()" ><i class="bi bi-pencil-square"></i> 修改</button>
+                <button class="btn btn-danger" onclick="del_account_form()"><i class="bi bi-x-circle-fill"></i> 刪除</button>
+            </div>
+        </div>
+    </div>
+
+  

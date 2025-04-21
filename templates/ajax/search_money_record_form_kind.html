@@ -1,0 +1,7 @@
+<select class="form-control" id="add_money_record_kind" onchange="select_money_record_kind(this.value)">
+    <option></option>
+    {% for val in res %}
+        <option value="{{ val[0] }}">{{ val[0] }}</option>
+    {% endfor %}
+</select>
+

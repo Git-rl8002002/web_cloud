@@ -1,0 +1,72 @@
+<!-- rich editor -->
+<script type="text/javascript" src="{{ url_for('static' , filename='js/ckeditor_4.5.7_full/ckeditor.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static' , filename='js/ckeditor_4.5.7_full/plugins/image/dialogs/image.js') }}"></script>
+    
+    <!-- title -->
+    <div id="add_money_form">
+        <div class="card">
+            <div class="card-header"><h4><i class="bi bi-pencil-square"></i> 用車記錄表</h4></div>
+            <div class="card-body">
+                
+                <!-- 日期 -->
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">日期</span>
+                    <!-- date  param : data-enable-time="true" data-enable-seconds="true" -->
+                    <input type="text" class="form-control" id="date" value="{{ r_time }}" placeholder="" readonly/>
+                </div>
+
+                <!-- 種類 -->
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">種類</span>
+                    <input type="text" class="form-control" id="kind" placeholder="" required>
+                    <select class="form-control" onchange="select_car_record_kind(this.value)">
+                        <option></option>
+                        {% for val in kind %}
+                        <option value="{{ val[0] }}">{{ val[0] }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <!-- 出車里程數 -->
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">出車里程數</span>
+                    <input type="text" class="form-control" id="go_out_km" placeholder="">
+                    <span class="input-group-text" id="basic-addon1">KM</span>
+                </div>
+
+                <!-- 入庫里程數 -->
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">入庫里程數</span>
+                    <input type="text" class="form-control" id="go_home_km" placeholder="" required>
+                    <span class="input-group-text" id="basic-addon1">KM</span>
+                </div>
+
+                <!-- content -->
+                <div class="input-group mb-3 d-flex justify-content-center align-items-center">
+                    <textarea class="form-control" id="destination" rows="6" required></textarea>
+                </div>
+
+                <!-- user -->
+                <input type="hidden" id="user" value="{{ user }}" />
+                
+                
+                
+            </div>
+            <div class="card-footer text-center">
+                <div class="btn-group">
+                    <button  class="btn btn-primary" onclick="submit_add_car_record_form()"><i class="bi bi-pencil-square"></i> 新增</button>
+                </div>
+            </div>
+            
+            <!-- error msg -->
+            <div id="error_msg" class="text-center" ></div>
+        </div>
+        
+    
+    
+    <!-- date picker & rich editor-->
+    <script>
+        $("#date").flatpickr();  
+        //CKEDITOR.replace('content');
+    </script>
+        

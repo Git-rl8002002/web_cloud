@@ -1,0 +1,64 @@
+<!-- rich editor -->
+<script type="text/javascript" src="{{ url_for('static' , filename='js/ckeditor_4.5.7_full/ckeditor.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static' , filename='js/ckeditor_4.5.7_full/plugins/image/dialogs/image.js') }}"></script>
+    
+    <!-- title -->
+    <div id="add_money_form my-3">
+        <div class="card">
+            <div class="card-header">
+                <h4><i class="bi bi-pencil-square"></i> 網站書籤</h4>
+            </div>
+            <div class="card-body">
+                
+                <!-- 日期時間 w_date -->
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">日期</span>
+                    <!-- date  param : data-enable-time="true" data-enable-seconds="true" -->
+                    <input type="text" class="form-control" id="w_date" value="{{ r_time }}" placeholder="" required readonly>
+                </div>
+
+                <!-- 種類 w_kind -->
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">種類</span>
+                    <input type="text" class="form-control" id="w_kind" placeholder="" required>
+                    <select class="form-control" id="add_website_record_kind" onchange="select_website_record_kind(this.value)">
+                        <option></option>
+                        {% for val in website_kind %}
+                            <option value="{{ val[0] }}">{{ val[0] }} ({{ val[1] }})</option>
+                        {% endfor %}
+                    </select>
+                    
+                </div>
+
+                <!-- 名稱 w_name -->
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">名稱</span>
+                    <input type="text" class="form-control" id="w_name" placeholder="" required>
+                </div>
+
+                <!-- 網址 w_url -->
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">網址</span>
+                    <input type="text" class="form-control" id="w_url" placeholder="" required>
+                </div>
+                
+                <!-- account w_user -->
+                <input type="hidden" id="w_user" value="{{ user }}" />
+            </div>
+            <div class="card-footer text-center">
+                <div class="btn-group">
+                    <button type="submit" class="btn btn-primary" onclick="submit_add_website_record_form()"><i class="bi bi-pencil-square"></i> 新增</button>
+                </div>
+            </div>
+            
+            <!-- error msg -->
+            <div id="error_msg" class="text-center"></div>
+        </div>
+    </div>
+    
+    <!-- date picker & rich editor-->
+    <script>
+        $("#date").flatpickr();  
+        //CKEDITOR.replace('content');
+    </script>
+        

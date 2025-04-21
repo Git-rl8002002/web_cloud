@@ -1,0 +1,13 @@
+<ul style="display: flex; flex-wrap: wrap; justify-content: center; padding: 0; list-style-type: none;">
+    {% for val in msg %}
+    <li style="list-style-type: none; display: inline-block; width: 25%; border:1px solid #adb5bd;" class="list-inline-item mouse_hover rounded m-2 p-2 text-center align-middle">
+        <span id="{{ val[0] }}/{{ val[1] }}/{{ val[3] }}" onclick="detail_calendar_record2(id)">
+            <p class="text-primary bottom_border">{{ val[0] }}</p>  
+            <p> {{ val[1] }}</p>
+        </span>
+    </li>
+    {% endfor %}
+</ul>
+
+
+  

@@ -1,0 +1,16 @@
+<ul style="display: flex; flex-wrap: wrap; justify-content: center; padding: 0; list-style-type: none;">
+    {% for val in msg %}
+    <li style="list-style-type: none; display: inline-block; width: 25%; border:1px solid #adb5bd;" class="list-inline-item mouse_hover rounded m-2 p-2 text-center align-middle">
+	    
+        <p><button class="btn btn-danger"  id="{{ val[4] }}" onclick="del_menu_money_record(id)"><i class="bi bi-x-square"></i> 刪</button></p>
+        <span>
+            <p class="bottom_border">{{ val[0] }}</p>  
+            <p>{{ val[1] }} {{ val[2] }} 元 </p> 
+            <p>{{ val[3] }}</p>
+        </span>
+    </li>
+    {% endfor %}
+</ul>
+
+
+  

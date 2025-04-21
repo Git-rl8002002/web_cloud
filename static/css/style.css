@@ -1,0 +1,80 @@
+@CHARSET "UTF-8";
+a:visited{color:blue;text-decoration:none;}
+a:hover  {color:red;  text-decoration:none; box-shadow:none;}
+a:active {text-decoration:none;}
+a:link   {text-decoration:none;}
+
+.goto_top:hover{
+	color:black;
+	background:#cccccc;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.3);	
+}
+.goto_top{
+	display:none;
+    position: fixed;
+    border-radius: 50px;
+    right: 20px;
+    bottom: 30px;
+    padding: 10px 16px;
+    font-size: 25px;
+    background: gray;
+    color: #FAFCFD;
+    cursor: pointer;
+    z-index: 1000;	
+    font-family:微軟正黑體;
+}
+
+.navbar{
+	background-color:#e9ecef;
+
+}
+
+
+li , .card , .nav-tabs{
+	border-color:#adb5bd;	
+}
+
+
+
+.bottom_border{
+    border-bottom: 1px solid #adb5bd;
+    padding: 1%;
+}
+
+.left_menu_border{
+    border-right:1px solid #adb5bd;
+    padding:1%;
+}
+
+.nav-item > .nav-link.active{
+	border-top:1px solid #adb5bd;
+	border-right:1px solid #adb5bd;
+	border-left:1px solid #adb5bd;
+}
+
+.mouse_hover:hover , input:hover , .nav-item:hover{
+    background-color:#ced4da;
+    border-color:#ced4da;
+    box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+}
+
+.border_01{
+    margin: 1%;
+    padding: 1%;;
+    border:solid 1px #cccccc;
+}
+
+.btn_space{
+    padding:0.2%;
+}
+
+select{
+    cursor: pointer;
+    margin:0.01%;
+}
+
+div,input,textarea,select{
+    cursor: pointer;
+}
+

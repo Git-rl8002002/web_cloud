@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <!-- socketIO CDN -->
+        <script type="text/javascript" src="https://unpkg.com/socket.io@4.2.0/dist/index.js"></script>
+        
+        <!-- Bootstrap 4.5.2 --> 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+        <!-- websocket -->
+        <script type="text/javascript">
+            $(document).ready(function(){
+                
+                var socket = io.connect('http://61.220.205.143:8095/echo');
+                socket.on('echo', function(msg) {
+                    var data_show = msg.data;
+                    $("#status").append("<p>Received : "+ data.show +"</p>");
+                });
+                
+                
+                //$(window).scroll(function() {
+                //    if ( $(this).scrollTop() > 300){
+                //        $('#goto_top').fadeIn("fast");
+                //    } else {
+                //        $('#goto_top').stop().fadeOut("fast");
+                //    }
+                //});
+                
+            });
+        </script>	
+    </head>
+    <body>
+        <div id="status">WebSocket</div>
+
+        
+
+
+        <!-- CDN_Vus.js3 -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@3.3.4/dist/vue.global.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    
+        <script src="{{ url_for('static' , filename='js/vuejs3/v_index.js') }}"></script>
+        <script src="{{ url_for('static' , filename='js/signature.js') }}"></script>
+
+    </body>
+</html>
+
+
+
+

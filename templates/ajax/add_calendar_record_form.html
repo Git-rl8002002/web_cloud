@@ -1,0 +1,49 @@
+<!-- rich editor -->
+<script type="text/javascript" src="{{ url_for('static' , filename='js/ckeditor_4.5.7_full/ckeditor.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static' , filename='js/ckeditor_4.5.7_full/plugins/image/dialogs/image.js') }}"></script>
+    
+    <!-- title -->
+    <div id="add_work_form">
+        <div class="card">
+            <div class="card-header"><h4><i class="bi bi-pencil-square"></i> {{ title }}</h4></div>
+            <div class="card-body">
+                
+                <!-- 日期 -->
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">日期</span>
+                    <!-- date  param : data-enable-time="true" data-enable-seconds="true" -->
+                    <input type="text" class="form-control" id="date" value="{{ r_time }}" placeholder="" readonly/>
+                </div>
+
+                <!-- 標題 -->
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">標題</span>
+                    <input type="text" class="form-control" id="title" required>
+                    <span class="input-group-text" id="basic-addon1">類</span>
+                </div>
+
+                <!-- 內容 -->
+                <div class="input-group mb-3 d-flex justify-content-center align-items-center">
+                    <!-- content -->
+                    <textarea class="form-control" id="content" rows="15" required></textarea>
+                </div>
+                
+                <!-- user -->
+                <input type="hidden" id="user" value="{{ user }}" />
+
+            </div>
+            <div class="card-footer text-center">
+                <div class="btn-group">
+                    <button  class="btn btn-primary" onclick="submit_add_calendar_record_form()"><i class="bi bi-pencil-square"></i> 新增</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- error msg -->
+        <div id="error_msg" class="text-center"></div>
+
+    <!-- date picker & rich editor-->
+    <script>
+        $("#date").flatpickr();  
+        CKEDITOR.replace('content');
+    </script>

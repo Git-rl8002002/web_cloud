@@ -1,0 +1,45 @@
+<!-- rich editor -->
+<script type="text/javascript" src="{{ url_for('static' , filename='js/ckeditor_4.5.7_full/ckeditor.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static' , filename='js/ckeditor_4.5.7_full/plugins/image/dialogs/image.js') }}"></script>
+
+    <!-- title -->
+    <div id="add_work_form" class="card">
+        {% for val in msg %}
+        <div class="card-header"><h3><i class="bi bi-pencil-square"></i> <span class="text-danger">修改</span> {{ val[1] }}</h3></div>
+        <div class="card-body">
+            
+            <!-- 日期 -->
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">日期</span>
+                <!-- date -->
+                <input type="text" class="form-control" id="record_time" value="{{ val[0] }}" placeholder="日期" readonly/>
+            </div>
+
+            <!-- 標體 -->
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">標體</span>
+                <input type="text" class="form-control" id="title" value="{{ val[1] }}" placeholder="標體">
+            </div>
+
+            <!-- content -->
+            <div class="input-group mb-3 d-flex justify-content-center align-items-center">
+                <!-- content -->
+                <textarea class="form-control" id="content" rows="30" >{{ val[2] }}</textarea>
+            </div>
+            
+            <!-- no -->
+            <input type="hidden" id="no" value="{{ val[4] }}"/>
+            {% endfor %}
+        </div>    
+        <div class="card-footer text-center">
+            <div class="btn-group">
+                <button  class="btn btn-primary" onclick="submit_alter_calendar_record_form()"><i class="bi bi-pencil-square"></i> 修改</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- date picker -->
+    <script>
+        $("#record_time").flatpickr();  
+        CKEDITOR.replace('content');
+    </script>
